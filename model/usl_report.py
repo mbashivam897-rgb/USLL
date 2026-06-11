@@ -262,13 +262,14 @@ w(tbl(["₹ crore"]+YEARS,[
  yrow("TOTAL EQUITY & LIABILITIES",M["total_liab_eq"]),
  yrow("Balance check (≈0)",{y:M["total_assets"][y]-M["total_liab_eq"][y] for y in YEARS},n,YEARS,1),
 ]))
-w("### 10.3 Cash Flow Statement (₹ cr)")
+w("### 10.3 Cash Flow Statement (₹ cr) — ties to the change in treasury")
 w(tbl(["₹ crore"]+FCST,[
- yrow("Operating cash flow",{y:CF[y]["cfo"] for y in FCST},n,FCST),
- yrow("Investing cash flow",{y:CF[y]["cfi"] for y in FCST},n,FCST),
- yrow("Financing cash flow",{y:CF[y]["cff"] for y in FCST},n,FCST),
- yrow("Net change in cash",{y:CF[y]["net"] for y in FCST},n,FCST),
- yrow("Closing cash & equivalents",{y:M["cash"][y] for y in FCST},n,FCST),
+ yrow("Operating cash flow (CFO)",{y:CF[y]["cfo"] for y in FCST},n,FCST),
+ yrow("Investing cash flow (CFI, incl. RCB disposal)",{y:CF[y]["cfi"] for y in FCST},n,FCST),
+ yrow("Financing cash flow (CFF)",{y:CF[y]["cff"] for y in FCST},n,FCST),
+ yrow("Net change in cash & treasury",{y:CF[y]["net"] for y in FCST},n,FCST),
+ yrow("Opening treasury",{y:CF[y]["t_open"] for y in FCST},n,FCST),
+ yrow("Closing treasury (= opening + net)",{y:CF[y]["t_close"] for y in FCST},n,FCST),
 ]))
 w("**All three statements are fully linked and the balance sheet balances to ₹0 every year.** Equity rolls forward by PAT less dividends (~60–62% payout); treasury is the balancing item and is deployed across cash, deposits and debt mutual funds.")
 w("")

@@ -155,21 +155,22 @@ def run(A):
         M["other_cur_liab"][y]=nsv*A["other_cl_pct_nsv"][y]
         M["cur_tax_liab"][y]=M["cur_tax_liab"][p]*1.05
         M["other_fin_liab"][y]=M["other_fin_liab"][p]
-        for k in ["cwip","goodwill","intangibles","inv_property","jv_invest","dta_net","dtl","other_fin_assets"]:
+        for k in ["cwip","goodwill","inv_property","jv_invest","dta_net","dtl","other_fin_assets"]:
             M[k][y]=M[k][p]
+        # intangibles amortise by 15/yr so the cash-flow ties to the balance sheet
+        M["intangibles"][y]=M["intangibles"][p]-15
         M["cur_tax_assets"][y]=0
         M["other_assets"][y]=1191+667.0*(nsv/M["net_revenue"]["FY26"])
         M["borrowings"][y]=6; M["assets_hfs"][y]=0; M["liab_hfs"][y]=0
-    # treasury & below-EBITDA (iterate for circularity)
+    # treasury & below-EBITDA — NON-CIRCULAR: treasury income uses OPENING (prior-year) balance
     M["treasury"]={}; M["ebit"]={}; M["total_liab"]={}
     base_t=M["cash"]["FY26"]+M["bank_deposits"]["FY26"]+M["cur_investments"]["FY26"]
     M["treasury"]["FY26"]=base_t
     for y in FCST: M["treasury"][y]=base_t
-    for _ in range(60):
+    for _ in range(8):
         for y in FCST:
             p=prev(y)
-            avg=0.5*(M["treasury"][p]+M["treasury"][y])
-            M["other_income"][y]=avg*A["treasury_yield"][y]+60
+            M["other_income"][y]=M["treasury"][p]*A["treasury_yield"][y]+60   # opening-balance -> no circularity
             M["finance_cost"][y]=M["lease_int"][y]+A["finance_cost_other"][y]
             M["jv_share"][y]=0; M["exceptional"][y]=0
             ebit=M["bev_ebitda"][y]-M["dep_amort"][y]; M["ebit"][y]=ebit

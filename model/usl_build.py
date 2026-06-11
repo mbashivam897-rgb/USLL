@@ -68,26 +68,39 @@ R = R_build(M)
 # CASH FLOW (forecast, derived) & FCFF
 # =====================================================================================
 def cashflow(M):
+    """Cash-flow statement that ties EXACTLY to the change in treasury (the BS plug).
+       Net = CFO+CFI+CFF = treasury_t - treasury_{t-1} by construction."""
     CF={}
     for y in FCST:
         p=prev(y)
-        pat=M["pat_reported"][y]; da=M["dep_amort"][y]
-        d_inv=-(M["inventory"][y]-M["inventory"][p])
-        d_rec=-((M["receivables_cur"][y]+M["receivables_nc"][y])-(M["receivables_cur"][p]+M["receivables_nc"][p]))
-        d_pay=(M["trade_payables"][y]-M["trade_payables"][p])
-        d_oa=-((M["other_assets"][y]+M["other_fin_assets"][y]+M["cur_tax_assets"][y])-(M["other_assets"][p]+M["other_fin_assets"][p]+M["cur_tax_assets"][p]))
-        d_ol=((M["other_cur_liab"][y]+M["other_fin_liab"][y]+M["provisions"][y]+M["cur_tax_liab"][y])-(M["other_cur_liab"][p]+M["other_fin_liab"][p]+M["provisions"][p]+M["cur_tax_liab"][p]))
-        dwc=d_inv+d_rec+d_pay+d_oa+d_ol
-        cfo=pat+da+M["lease_int"][y]-M["other_income"][y]+dwc+(M["dtl"][y]-M["dtl"][p])-(M["dta_net"][y]-M["dta_net"][p])
-        capex=M["capex_fc"][y]
-        treas_inv=-((M["bank_deposits"][y]+M["cur_investments"][y])-(M["bank_deposits"][p]+M["cur_investments"][p]))
-        cfi=-capex+M["other_income"][y]+treas_inv
-        cff=-M["dividend_paid"][y]-M["lease_pay"][y]-M["lease_int"][y]+(M["borrowings"][y]-M["borrowings"][p])
-        net=cfo+cfi+cff
-        CF[y]=dict(cfo=cfo,capex=capex,treas_inv=treas_inv,cfi=cfi,cff=cff,net=net,dwc=dwc,
-                   cash_open=M["cash"][p],cash_close=M["cash"][p]+net)
+        pat=M["pat_reported"][y]; da=M["dep_amort"][y]; lint=M["lease_int"][y]
+        # working-capital cash effect: +Δ(op liabilities) − Δ(op assets)
+        d_assets = ((M["inventory"][y]-M["inventory"][p])
+                    +(M["receivables_cur"][y]-M["receivables_cur"][p])
+                    +(M["receivables_nc"][y]-M["receivables_nc"][p])
+                    +(M["other_assets"][y]-M["other_assets"][p]))
+        d_liab   = ((M["trade_payables"][y]-M["trade_payables"][p])
+                    +(M["provisions"][y]-M["provisions"][p])
+                    +(M["cur_tax_liab"][y]-M["cur_tax_liab"][p])
+                    +(M["other_cur_liab"][y]-M["other_cur_liab"][p]))
+        dwc = d_liab - d_assets
+        cfo = pat + da + dwc + lint                      # lease interest added back (financing)
+        capex = M["capex_fc"][y]
+        # RCB / held-for-sale disposal (FY27): assets derecognised net of disposal-group liabilities
+        d_hfs = (M["assets_hfs"][p]-M["assets_hfs"][y]) - (M["liab_hfs"][p]-M["liab_hfs"][y])
+        cfi = -capex + d_hfs                             # ROU additions are non-cash
+        d_borrow = M["borrowings"][y]-M["borrowings"][p]
+        cff = -M["dividend_paid"][y] - M["lease_pay"][y] + d_borrow
+        net = cfo+cfi+cff
+        topen = M["treasury"][p]; tclose = topen+net
+        CF[y]=dict(cfo=cfo,da=da,dwc=dwc,lint=lint,capex=capex,cfi=cfi,cff=cff,net=net,d_hfs=d_hfs,
+                   div=M["dividend_paid"][y],lease_pay=M["lease_pay"][y],d_borrow=d_borrow,
+                   t_open=topen,t_close=tclose,t_bs=M["treasury"][y],
+                   tie=tclose-M["treasury"][y])
     return CF
 CF = cashflow(M)
+print("\n=== Cash-flow tie check (CF closing treasury − BS treasury, should be ~0) ===")
+for y in FCST: print(f"  {y}: {CF[y]['tie']:+.3f}")
 
 # FCFF for each forecast year (unlevered)
 def fcff_series(M):

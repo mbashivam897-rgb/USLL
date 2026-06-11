@@ -157,11 +157,11 @@ Leases are material for USL because tie-up manufacturing and warehousing carry *
 ## Step 7 — Cash & Investments (Treasury) Schedule
 | ₹ crore | FY22 | FY23 | FY24 | FY25 | FY26 | FY27E | FY28E | FY29E | FY30E |
 |---|--:|--:|--:|--:|--:|--:|--:|--:|--:|
-| Cash & equivalents | 54 | 115 | 1,052 | 1,328 | 859 | 1,057 | 1,181 | 1,330 | 1,497 |
-| Bank deposits | 6 | 768 | 217 | 702 | 1,118 | 1,409 | 1,575 | 1,773 | 1,996 |
-| Current investments (debt MF/bonds) | 222 | 256 | 599 | 873 | 1,157 | 1,448 | 1,618 | 1,822 | 2,052 |
-| Total treasury | 282 | 1,139 | 1,868 | 2,903 | 3,134 | 3,914 | 4,374 | 4,924 | 5,545 |
-| Other income (treasury, ₹ cr) | 36 | 73 | 225 | 336 | 478 | 264 | 304 | 339 | 374 |
+| Cash & equivalents | 54 | 115 | 1,052 | 1,328 | 859 | 1,059 | 1,186 | 1,338 | 1,508 |
+| Bank deposits | 6 | 768 | 217 | 702 | 1,118 | 1,412 | 1,582 | 1,784 | 2,011 |
+| Current investments (debt MF/bonds) | 222 | 256 | 599 | 873 | 1,157 | 1,451 | 1,626 | 1,833 | 2,067 |
+| Total treasury | 282 | 1,139 | 1,868 | 2,903 | 3,134 | 3,922 | 4,393 | 4,954 | 5,586 |
+| Other income (treasury, ₹ cr) | 36 | 73 | 225 | 336 | 478 | 242 | 291 | 324 | 357 |
 
 
 **Treasury income yield = interest/MF income ÷ average treasury balance.** Realised yields run ~5.5–6% on a mix of bank term deposits and debt mutual funds. As the cash pile compounds (we model net retention after a ~60% payout), treasury income becomes a growing, low-risk contributor to other income (₹260–375 cr over the forecast). Note FY26 other income (₹478 cr) was elevated by one-off asset-disposal gains; we normalise this in the forecast.
@@ -209,42 +209,43 @@ EBITDA margin expands ~**50–60 bps per year (18.3%→20.5%)**, driven by: (i) 
 | EBITDA (core) | 1,510 | 1,419 | 1,708 | 2,058 | 2,286 | 2,579 | 2,929 | 3,306 | 3,694 |
 | Depreciation & amortisation | 304 | 282 | 275 | 283 | 289 | 279 | 339 | 391 | 440 |
 | EBIT | 1,206 | 1,136 | 1,433 | 1,775 | 1,997 | 2,300 | 2,589 | 2,916 | 3,254 |
-| Other income | 36 | 73 | 225 | 336 | 478 | 264 | 304 | 339 | 374 |
+| Other income | 36 | 73 | 225 | 336 | 478 | 242 | 291 | 324 | 357 |
 | Finance costs | 88 | 104 | 76 | 89 | 158 | 87 | 104 | 119 | 132 |
 | Exceptional / JV | -165 | 175 | -18 | -72 | -98 | 0 | 0 | 0 | 0 |
-| PBT | 1,087 | 1,279 | 1,857 | 2,135 | 2,226 | 2,478 | 2,790 | 3,136 | 3,496 |
-| Tax | 276 | 153 | 449 | 553 | 510 | 632 | 711 | 800 | 892 |
-| PAT (continuing) | 811 | 1,126 | 1,408 | 1,582 | 1,716 | 1,846 | 2,078 | 2,336 | 2,605 |
-| PAT (reported) | 811 | 1,126 | 1,408 | 1,582 | 1,838 | 1,846 | 2,078 | 2,336 | 2,605 |
-| EPS (₹) | 11.7 | 16.0 | 19.8 | 22.3 | 25.9 | 25.4 | 28.6 | 32.1 | 35.8 |
+| PBT | 1,087 | 1,279 | 1,857 | 2,135 | 2,226 | 2,455 | 2,777 | 3,121 | 3,479 |
+| Tax | 276 | 153 | 449 | 553 | 510 | 626 | 708 | 796 | 887 |
+| PAT (continuing) | 811 | 1,126 | 1,408 | 1,582 | 1,716 | 1,829 | 2,069 | 2,325 | 2,592 |
+| PAT (reported) | 811 | 1,126 | 1,408 | 1,582 | 1,838 | 1,829 | 2,069 | 2,325 | 2,592 |
+| EPS (₹) | 11.7 | 16.0 | 19.8 | 22.3 | 25.9 | 25.1 | 28.4 | 31.9 | 35.6 |
 
 
 ### 10.2 Balance Sheet (₹ cr)
 | ₹ crore | FY22 | FY23 | FY24 | FY25 | FY26 | FY27E | FY28E | FY29E | FY30E |
 |---|--:|--:|--:|--:|--:|--:|--:|--:|--:|
 | Net PPE (incl. ROU) | 1,215 | 978 | 844 | 850 | 1,215 | 1,500 | 1,749 | 1,985 | 2,227 |
-| Goodwill + Intangibles + Inv. property | 467 | 466 | 526 | 477 | 266 | 266 | 266 | 266 | 266 |
+| Goodwill + Intangibles + Inv. property | 467 | 466 | 526 | 477 | 266 | 251 | 236 | 221 | 206 |
 | Inventories | 2,157 | 2,230 | 2,063 | 2,305 | 2,668 | 2,849 | 3,067 | 3,286 | 3,503 |
 | Trade receivables (cur+non-cur) | 2,522 | 2,580 | 3,421 | 3,750 | 3,960 | 4,314 | 4,701 | 5,070 | 5,471 |
-| Cash + deposits + investments | 282 | 1,139 | 1,868 | 2,903 | 3,134 | 3,914 | 4,374 | 4,924 | 5,545 |
+| Cash + deposits + investments | 282 | 1,139 | 1,868 | 2,903 | 3,134 | 3,922 | 4,393 | 4,954 | 5,586 |
 | Other assets (incl. tax under protest) | 2,137 | 2,302 | 2,290 | 2,484 | 3,225 | 2,591 | 2,665 | 2,741 | 2,821 |
-| TOTAL ASSETS | 8,911 | 9,762 | 11,249 | 13,248 | 14,469 | 15,433 | 16,822 | 18,274 | 19,834 |
-| Total equity | 4,875 | 6,000 | 7,121 | 8,104 | 8,957 | 9,695 | 10,527 | 11,415 | 12,404 |
+| TOTAL ASSETS | 8,911 | 9,762 | 11,249 | 13,248 | 14,469 | 15,426 | 16,811 | 18,259 | 19,814 |
+| Total equity | 4,875 | 6,000 | 7,121 | 8,104 | 8,957 | 9,689 | 10,516 | 11,400 | 12,385 |
 | Borrowings + lease liabilities | 605 | 183 | 265 | 480 | 413 | 584 | 720 | 849 | 976 |
 | Trade payables | 1,582 | 1,782 | 1,954 | 2,239 | 2,383 | 2,590 | 2,828 | 3,074 | 3,324 |
 | Other liabilities & provisions | 1,849 | 1,796 | 1,909 | 2,425 | 2,716 | 2,564 | 2,747 | 2,936 | 3,129 |
-| TOTAL EQUITY & LIABILITIES | 8,911 | 9,762 | 11,249 | 13,248 | 14,469 | 15,433 | 16,822 | 18,274 | 19,834 |
+| TOTAL EQUITY & LIABILITIES | 8,911 | 9,762 | 11,249 | 13,248 | 14,469 | 15,426 | 16,811 | 18,259 | 19,814 |
 | Balance check (≈0) | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
 
 
-### 10.3 Cash Flow Statement (₹ cr)
+### 10.3 Cash Flow Statement (₹ cr) — ties to the change in treasury
 | ₹ crore | FY27E | FY28E | FY29E | FY30E |
 |---|--:|--:|--:|--:|
-| Operating cash flow | 1,676 | 1,904 | 2,217 | 2,489 |
-| Investing cash flow | -592 | -333 | -377 | -422 |
-| Financing cash flow | -1,281 | -1,481 | -1,738 | -1,956 |
-| Net change in cash | -197 | 90 | 103 | 111 |
-| Closing cash & equivalents | 1,057 | 1,181 | 1,330 | 1,497 |
+| Operating cash flow (CFO) | 1,924 | 2,199 | 2,545 | 2,851 |
+| Investing cash flow (CFI, incl. RCB disposal) | 100 | -302 | -314 | -342 |
+| Financing cash flow (CFF) | -1,236 | -1,426 | -1,670 | -1,877 |
+| Net change in cash & treasury | 787 | 471 | 561 | 631 |
+| Opening treasury | 3,134 | 3,922 | 4,393 | 4,954 |
+| Closing treasury (= opening + net) | 3,921 | 4,393 | 4,954 | 5,586 |
 
 
 **All three statements are fully linked and the balance sheet balances to ₹0 every year.** Equity rolls forward by PAT less dividends (~60–62% payout); treasury is the balancing item and is deployed across cash, deposits and debt mutual funds.
@@ -332,12 +333,12 @@ USL's 5-year average P/E is **~60x**; the current ~50x sits **below** that avera
 |---|--:|--:|--:|
 | FY30E Net Sales (₹ cr) | 15,836 | 18,019 | 19,591 |
 | FY30E EBITDA (₹ cr) | 2,977 | 3,694 | 4,310 |
-| FY30E PAT (₹ cr) | 2,084 | 2,605 | 3,063 |
-| FY30E EPS (₹) | 28.6 | 35.8 | 42.1 |
+| FY30E PAT (₹ cr) | 2,072 | 2,592 | 3,047 |
+| FY30E EPS (₹) | 28.5 | 35.6 | 41.9 |
 | NSV CAGR FY26-30 | 6.2% | 9.6% | 12.0% |
-| EPS CAGR FY26-30 | 2.6% | 8.4% | 12.9% |
-| **Target price (₹)** | **770** | **1,157** | **1,499** |
-| Upside/(downside) vs ₹1,259 | -38.8% | -8.1% | 19.1% |
+| EPS CAGR FY26-30 | 2.4% | 8.3% | 12.8% |
+| **Target price (₹)** | **768** | **1,155** | **1,496** |
+| Upside/(downside) vs ₹1,259 | -39.0% | -8.2% | 18.8% |
 
 
 - **Bull (₹1,500, +19%):** volume +6%, realisation +6%, EBITDA margin →~22%, RCB monetised at a premium; WACC 9.75%/g 6.75%.

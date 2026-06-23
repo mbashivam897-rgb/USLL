@@ -51,17 +51,24 @@ rows = [
     (29, "Payables days",                      "='Working Capital Schedule'!{X}16",         D0),
     (30, "Inventory days",                     "='Working Capital Schedule'!{X}13",         D0),
     (32, "Valuation Ratios", None, None),
-    (33, "EV/EBITDA",                          "={X}45/PL!{X}13",                           CX),
-    (34, "EV/Sales",                           "={X}45/PL!{X}6",                            CX),
-    (35, "EV/EBIT",                            "={X}45/PL!{X}15",                           CX),
-    (36, "PE Ratio",                           "={X}41/PL!{X}23",                           CX),
-    (39, "Memo - valuation basis (Market Cap held at current level)", None, None),
-    (41, "Market Cap (current, constant)",     "=Comparables!$C$12",                        NUM),
-    (42, "Total Debt (borrowings + leases)",   "=BS!{X}15+BS!{X}17+BS!{X}22",               NUM),
-    (43, "Cash & Investments",                 "=BS!{X}45",                                 NUM),
-    (44, "Net Debt",                           "={X}42-{X}43",                              NUM),
-    (45, "Enterprise Value (Mkt Cap + Net Debt)","={X}41+{X}44",                            NUM),
+    (33, "EV/EBITDA",                          "={X}46/PL!{X}13",                           CX),
+    (34, "EV/Sales",                           "={X}46/PL!{X}6",                            CX),
+    (35, "EV/EBIT",                            "={X}46/PL!{X}15",                           CX),
+    (36, "PE Ratio",                           "={X}42/PL!{X}23",                           CX),
+    (39, "Memo - valuation basis  (actual year-end market price; FY27-34 held at current price Rs1,246.7)", None, None),
+    (42, "Market Capitalisation (Rs cr)",      "={X}40*{X}41",                              NUM),
+    (43, "Total Debt (borrowings + leases)",   "=BS!{X}15+BS!{X}17+BS!{X}22",               NUM),
+    (44, "Cash & Investments",                 "=BS!{X}45",                                 NUM),
+    (45, "Net Debt",                           "={X}43-{X}44",                              NUM),
+    (46, "Enterprise Value (Mkt Cap + Net Debt)","={X}42+{X}45",                            NUM),
 ]
+
+# --- actual year-end share prices (Rs): FY17-19 implied from annual-report market cap;
+#     FY20 = COVID-trough estimate; FY21-26 = model Beta sheet; FY27-34 = current price held flat ---
+PRICE = {"C":434.3, "D":624.5, "E":539.5, "F":490.0, "G":519.5, "H":862.9, "I":777.1,
+         "J":1128.3, "K":1427.3, "L":1325.6}
+for fc in ["M","N","O","P","Q","R","S","T"]:
+    PRICE[fc] = 1246.7
 
 for row, label, tmpl, fmt in rows:
     ws[f"B{row}"] = label
@@ -74,6 +81,13 @@ for row, label, tmpl, fmt in rows:
         cell = ws[f"{c}{row}"]
         cell.value = tmpl.format(X=c)
         cell.number_format = fmt
+
+# memo: year-end share price (row 40, per-year actuals) and shares (row 41)
+ws["B40"] = "Year-end Share Price (Rs)"
+ws["B41"] = "Shares Outstanding (cr)"
+for c in COLS:
+    pc = ws[f"{c}40"]; pc.value = PRICE[c]; pc.number_format = "#,##0.0"
+    sc = ws[f"{c}41"]; sc.value = 72.74;    sc.number_format = "0.00"
 
 # column widths
 ws.column_dimensions["B"].width = 34

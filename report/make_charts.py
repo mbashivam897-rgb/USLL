@@ -56,10 +56,10 @@ ax2.set_ylabel("NSV growth (%)", color=GOLD)
 ax2.set_ylim(0, 16); ax2.grid(False)
 for i,v in enumerate(gr):
     if v is not None: ax2.text(i, v+0.4, f"{v:.1f}%", ha="center", fontsize=7.5, color="#8a6d0b")
-ax1.set_title("Exhibit 1: Net Sales Value & Growth — premiumisation-led topline (FY22–FY30E)",
+ax1.set_title("Exhibit 1: Net Sales Value and growth, premiumisation led topline (FY22 to FY30E)",
               fontsize=10, fontweight="bold", color=NAVY, loc="left")
 ax1.axvline(4.5, color=GREY, ls="--", lw=1)
-ax1.text(4.55, 18000, "Forecast →", fontsize=8, color=GREY)
+ax1.text(4.55, 18000, "Forecast", fontsize=8, color=GREY)
 save(fig, "ex1_nsv_growth.png")
 
 # ============== EXHIBIT 2: Margin ladder ==============
@@ -75,7 +75,7 @@ ax.plot(x,pat,marker="D",color=GOLD,lw=2,label="PAT margin")
 ax.set_xticks(x); ax.set_xticklabels(yrs)
 ax.set_ylabel("% of NSV"); ax.set_ylim(0,55)
 ax.legend(ncol=4, fontsize=8, loc="upper center", frameon=False, bbox_to_anchor=(0.5,1.02))
-ax.set_title("Exhibit 2: Margin trajectory — structural expansion on mix & operating leverage",
+ax.set_title("Exhibit 2: Margin trajectory, steady expansion on mix and operating leverage",
              fontsize=10, fontweight="bold", color=NAVY, loc="left", pad=22)
 ax.axvline(4.5,color=GREY,ls="--",lw=1)
 save(fig,"ex2_margins.png")
@@ -95,7 +95,7 @@ for i in range(len(yv)):
 ax.set_xticks(xv); ax.set_xticklabels(yv)
 ax.set_ylabel("Volume (mn cases)"); ax.set_ylim(0,100)
 ax.legend(fontsize=8, frameon=False, loc="upper right")
-ax.set_title("Exhibit 3: Volume mix shift — deliberate exit of 'Popular', P&A now ~83% of volume",
+ax.set_title("Exhibit 3: Volume mix shift, planned exit of Popular, P&A now about 83 percent of volume",
              fontsize=9.6, fontweight="bold", color=NAVY, loc="left")
 save(fig,"ex3_volume_mix.png")
 
@@ -107,7 +107,7 @@ ax.plot(x,roe,marker="o",color=BLUE,lw=2,label="ROE")
 ax.plot(x,roce,marker="s",color=GOLD,lw=2,label="ROCE")
 ax.set_xticks(x); ax.set_xticklabels(yrs); ax.set_ylabel("%"); ax.set_ylim(0,32)
 ax.legend(fontsize=8,frameon=False,loc="lower right")
-ax.set_title("Exhibit 4: Capital returns — sustained ~20%+ ROE / ROCE",
+ax.set_title("Exhibit 4: Capital returns, steady 20 percent plus ROE and ROCE",
              fontsize=10,fontweight="bold",color=NAVY,loc="left")
 ax.axvline(4.5,color=GREY,ls="--",lw=1)
 save(fig,"ex4_returns.png")
@@ -124,7 +124,7 @@ ax.set_xticks(xp); ax.set_xticklabels(peers); ax.set_ylabel("Multiple (x)")
 ax.legend(fontsize=8,frameon=False)
 for b in list(b1)+list(b2):
     ax.text(b.get_x()+b.get_width()/2, b.get_height()+1, f"{b.get_height():.0f}", ha="center", fontsize=7.5,color=NAVY)
-ax.set_title("Exhibit 5: Peer valuation (FY26) — USL trades below premium peers on P/E",
+ax.set_title("Exhibit 5: Peer valuation (FY26), USL trades below premium peers on P/E",
              fontsize=9.8,fontweight="bold",color=NAVY,loc="left")
 ax.set_ylim(0,95)
 save(fig,"ex5_peer_multiples.png")
@@ -142,7 +142,7 @@ ax.text(1326,4.6,"CMP ₹1,326",color=RED,fontsize=8,ha="center")
 ax.axvline(1348,color=GREEN,ls="--",lw=1.6)
 ax.text(1348,-0.7,"Blended TP ₹1,348",color=GREEN,fontsize=8,ha="center")
 ax.set_xlabel("Implied value per share (₹)"); ax.set_xlim(0,1950)
-ax.set_title("Exhibit 6: Valuation summary — implied value per methodology & blended target",
+ax.set_title("Exhibit 6: Valuation summary, implied value per method and blended target",
              fontsize=9.8,fontweight="bold",color=NAVY,loc="left")
 save(fig,"ex6_football_field.png")
 
@@ -167,7 +167,7 @@ for i in range(len(wacc)):
     for j in range(len(g)):
         ax.text(j,i,f"{grid[i,j]:,}",ha="center",va="center",fontsize=8,
                 color="black")
-ax.set_title("Exhibit 7: DCF sensitivity — fair value/share (₹)\nBase case WACC 11% / g 6% → ₹642",
+ax.set_title("Exhibit 7: DCF sensitivity, fair value per share (Rs)\nBase case WACC 11 percent, g 6 percent gives Rs 642",
              fontsize=9.4,fontweight="bold",color=NAVY,loc="left")
 save(fig,"ex7_dcf_sensitivity.png")
 
@@ -195,7 +195,7 @@ ax.bar(xf-w/2,fcf,w,color=BLUE,label="Free cash flow (FCFF)",zorder=3)
 ax.bar(xf+w/2,div,w,color=GOLD,label="Dividends paid",zorder=3)
 ax.set_xticks(xf); ax.set_xticklabels(fy); ax.set_ylabel("₹ cr")
 ax.legend(fontsize=8,frameon=False)
-ax.set_title("Exhibit 9: Free cash flow vs dividends (~70% payout)",
+ax.set_title("Exhibit 9: Free cash flow vs dividends (about 70 percent payout)",
              fontsize=10,fontweight="bold",color=NAVY,loc="left")
 save(fig,"ex9_fcf_div.png")
 
